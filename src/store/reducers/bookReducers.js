@@ -5,6 +5,9 @@ const bookReducer = (state= [], action) => {
         case Types.BOOK_LIST: {
             return action.payload.books
         }
+        case Types.BOOK_DETAILS: {
+            return action.payload.book
+        }
         case Types.LOAD_BOOkS: {
             return action.payload.books
         }

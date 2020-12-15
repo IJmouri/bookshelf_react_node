@@ -20,11 +20,7 @@ class Navigation extends React.Component {
                 </button>
                 <div className='collapse navbar-collapse'>
                     <ul className='navbar-nav'>
-                        <li className='nav-item'>
-                            <NavLink to='/' activeClassName='active' exact>
-                                <span className='nav-link'>Book List</span>
-                            </NavLink>
-                        </li>
+                        
                         {
                             this.props.auth.isAuthenticated ? 
                                 <React.Fragment>
@@ -45,7 +41,11 @@ class Navigation extends React.Component {
                                 </React.Fragment>
                                 :
                                 <React.Fragment>
-                        
+                                <li className='nav-item'>
+                                    <NavLink to='/' activeClassName='active' exact>
+                                        <span className='nav-link'>Book List</span>
+                                    </NavLink>
+                                </li>
                                 <li>
                                     <NavLink to='/login' activeClassName='active'>
                                         <span className='nav-link'>Login</span>

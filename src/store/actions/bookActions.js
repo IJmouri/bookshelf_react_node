@@ -16,6 +16,21 @@ export const bookList = () => dispatch => {
     })
 }
 
+export const bookDetails = (id, book) => dispatch => {
+    Axios.get(`http://localhost:3000/bookDetails/${id}`)
+    .then(response => {
+        dispatch({
+            type: Types.BOOK_DETAILS,
+            payload: {
+                book: response.data
+            }
+        })
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
+
 export const loadBooks = () => dispatch => {
     Axios.get('http://localhost:3000/user/bookList/')
     .then(response => {

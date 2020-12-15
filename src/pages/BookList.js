@@ -1,9 +1,27 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import BookDetails from '../components/books/BookDetails';
 import  {bookList} from '../store/actions/bookActions';
 
 class BookList extends React.Component {
 
+    state = {
+        bookDetailsModalOpen: false,
+        id: ''
+    }
+    openBookDetailsModal = (id) => {
+        this.setState({
+            bookDetailsModalOpen: true,
+            id
+        })
+    }
+    closeBookDetailsModal = () => {
+        this.setState({
+            bookDetailsModalOpen: false,
+            id: ''
+        })
+    }
+    
     componentDidMount(){
         this.props.bookList()
     }
@@ -33,7 +51,19 @@ class BookList extends React.Component {
                             books.map(book => (
                                 <tr key={book._id}>
                                     <td>{book.name}</td>
-                                    <button>Details</button>
+                                    {
+                                        this.state.id === book._id ?
+                                        <BookDetails 
+                                        isOpen={this.state.bookDetailsModalOpen}
+                                        close={this.closeBookDetailsModal} 
+                                        book={book}
+                                    /> : null
+
+                                    }
+                                    <button 
+                                        onClick={()=>this.openBookDetailsModal(book._id)}
+                                        className="btn"
+                                    >Details</button>
                                    
                                 </tr>
                             ))
