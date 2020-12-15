@@ -79,11 +79,12 @@ export const removeBook = id => dispatch =>  {
 }
 
 export const updateBook = (id, book) => dispatch => {
+    // console.log(book);
     Axios.patch(`http://localhost:3000/book/${id}`, book)
     .then(response => {
         console.log(response);
         dispatch({
-            type: Types.UPDATE_BOOk,
+            type: Types.UPDATE_BOOK,
             payload: {
                 book: response.data
             }

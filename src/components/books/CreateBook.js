@@ -29,6 +29,7 @@ class CreateBook extends React.Component{
         }) 
     }
 
+    
     submitHandler = event => {
         event.preventDefault();
         this.props.addNewBook(this.state)

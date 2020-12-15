@@ -47,13 +47,12 @@ class UpdateBook extends React.Component{
         let {name,author,category} = this.state
         return (
             <Modal
-                contentLabel='Create New Book'
                 style={customStyles}
                 onRequestClose={this.props.close}
                 isOpen={this.props.isOpen}
             >
             <h2>Update A Book</h2>
-                <form onSubmit={this.props.submitHandler} className="form-group">
+                <form onSubmit={this.submitHandler} className="form-group">
                     <div className='form-group'>
                         <label htmlFor='name'>Name: </label>
                             <input 

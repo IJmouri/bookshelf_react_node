@@ -22,7 +22,7 @@ const bookReducer = (state= [], action) => {
                 return book._id !== action.payload.id
             })
         }
-        case Types.UPDATE_BOOk: {
+        case Types.UPDATE_BOOK: {
             let books = [...state]
             return books.map(book => {
                 if (book._id === action.payload.book._id){
